@@ -28,3 +28,16 @@ let rabbit = new Rabbit("Rab");
 
 alert( rabbit.hasOwnProperty('name') ); // Error
 ```
+ * 해답 : 상속받는 클래스의 생성자는 super()를 호출해야 this가 정의된다.
+```js
+class Rabbit extends Object {
+  constructor(name) {
+    super(); // 상속 클래스의 생성자에선 부모 생성자를 반드시 호출해야 함
+    this.name = name;
+  }
+}
+
+let rabbit = new Rabbit("Rab");
+
+alert( rabbit.hasOwnProperty('name') ); // true
+```
